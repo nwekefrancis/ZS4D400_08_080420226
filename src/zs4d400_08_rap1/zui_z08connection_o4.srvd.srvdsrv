@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service-Definition für ZC_08CONNECTION'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_08CONNECTION'
+  }
+}
+define service ZUI_Z08CONNECTION_O4 provider contracts odata_v4_ui {
+  expose ZC_08CONNECTION as zconnection;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_08CONNECTION'
+@MappingRole: true
+define role ZR_08CONNECTION {
+  grant select on ZR_08CONNECTION
+  where TRUE;
+}

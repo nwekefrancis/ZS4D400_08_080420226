@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service-Definition für ZC_08FLIGHT001'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_08FLIGHT001'
+  }
+}
+define service ZUI_Z08FLIGHT001_O4 provider contracts odata_v4_ui {
+  expose ZC_08FLIGHT001 as FLIGHT;
+}

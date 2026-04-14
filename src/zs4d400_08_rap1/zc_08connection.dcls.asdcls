@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_08CONNECTION'
+@MappingRole: true
+define role ZC_08CONNECTION {
+  grant select on ZC_08CONNECTION
+  where INHERITING CONDITIONS FROM ENTITY ZR_08CONNECTION REPLACING { ROOT WITH _BaseEntity };
+}

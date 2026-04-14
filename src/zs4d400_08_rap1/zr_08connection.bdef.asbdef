@@ -1,0 +1,57 @@
+managed implementation in class ZBP_R_08CONNECTION unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_08CONNECTION alias zconnection
+persistent table Z08CONNECTION
+extensible
+draft table Z08CONNECTION_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  determination getCity on save { field AirportFromID, AirportToID; }
+
+
+  mapping for Z08CONNECTION corresponding extensible
+  {
+    UUID = UUID;
+    CarrierID = CARRIER_ID;
+    ConnectionID = CONNECTION_ID;
+    AirportFromID = AIRPORT_FROM_ID;
+    CityFrom = CITY_FROM;
+    CountryFrom = COUNTRY_FROM;
+    AirportToID = AIRPORT_TO_ID;
+    CityTo = CITY_TO;
+    CountryTo = COUNTRY_TO;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
